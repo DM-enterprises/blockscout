@@ -148,6 +148,18 @@ defmodule BlockScoutWeb.API.V2.StatsController do
     })
   end
 
+  def secondary_coin_market_chart(conn, _params) do
+    recent_market_history = Market.fetch_recent_history(true)
+
+    chart_data =
+      recent_market_history
+      |> Enum.map(fn day -> Map.take(day, [:closing_price, :date]) end)
+
+    json(conn, %{
+      chart_data: chart_data
+    })
+  end
+
   defp add_rootstock_locked_btc(stats) do
     with "rsk" <- Variant.get(),
          rootstock_locked_btc when not is_nil(rootstock_locked_btc) <- RootstockLockedBTC.get_locked_value() do
