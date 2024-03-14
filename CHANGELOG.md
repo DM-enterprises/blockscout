@@ -18,6 +18,7 @@
 
 ### Fixes
 
+- [#9638](https://github.com/blockscout/blockscout/pull/9638) - Fix fetch_coin_balance query to compare between balances with values
 - [#9629](https://github.com/blockscout/blockscout/pull/9629) - Don't insert pbo for not inserted blocks
 - [#9601](https://github.com/blockscout/blockscout/pull/9601) - Fix token instance transform for some unconventional tokens
 - [#9597](https://github.com/blockscout/blockscout/pull/9597) - Update token transfers block_consensus by block_number
